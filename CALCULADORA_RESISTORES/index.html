@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Resistores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="container">
+        <header>
+            <h1>Calculadora de Resistores</h1>
+            <p>Selecione o modelo e insira as cores</p>
+        </header>
+
+        <div class="select-wrapper">
+            <select id="tipo-resistor" onchange="alternarModo()">
+                <option value="4"> Resistor de 4 Faixas</option>
+                <option value="5"> Resistor de 5 Faixas</option>
+            </select>
+        </div>
+
+            <div id="resistor-display">
+                <div class="wire"></div>
+                <div id="resistor-body">
+                    <div class="stripe" id="s1"></div>
+                    <div class="stripe" id="s2"></div>
+                    <div class="stripe" id="s3"></div>
+                    <div class="stripe" id="s4"></div>
+                    <div class="stripe" id="s5"></div> </div>
+                <div class="wire"></div>
+        </div>
+        <button onclick="iniciarCalculo()" class="btn-main">Definir Cores</button>
+
+        <div id="resultado-container">
+            <span id="label-res">Resistência:</span>
+            <div id="valor-ohm">>--- Ω</div>
+        </div>
+
+        <footer>
+            <p>Precisa de ajuda com as cores ? <br> Clique no botão para inserir via prompt.</p>
+        </footer>
+    </div>
+    <script src="resistor_4_faixas.js"></script>
+    <script src="resistor_5_faixas.js"></script>
+    <script>
+        //Função que alterna a exibição da 5ª faixa
+        function alternarModo() {
+            const tipo = document.getElementById('tipo-resistor').value;
+            const s5 = document.getElementById('s5');
+            s5.style.display =(tipo === "5") ? "block" : "nome";
+        }
+        function iniciarCalculo() {
+            const tipo = document.getElementById('tipo-resistor').value;
+            if(tipo === "4") resistor4cores();
+            else resistor5cores();
+        }
+
+    </script>
+</body>
+</html>
