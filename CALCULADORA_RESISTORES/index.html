@@ -49,7 +49,9 @@
         function alternarModo() {
             const tipo = document.getElementById('tipo-resistor').value;
             const s5 = document.getElementById('s5');
-            s5.style.display =(tipo === "5") ? "block" : "nome";
+            s5.style.display =(tipo === "5") ? "block" : "none";
+
+            document.getElementById('valor-ohm').innerHTML = ">--- Ω"
         }
         function iniciarCalculo() {
             const tipo = document.getElementById('tipo-resistor').value;

@@ -24,15 +24,15 @@ function resistor5cores(){
         "verde": {valor: 5, mult: 100_000, tol: null},
         "azul": {valor: 6, mult: 1_000_000, tol: null},
         "roxo": {valor: 7, mult: 10_000_000, tol: null},
-        "cinza": {valor: 8, mult: 100_000_000, tol: null},
-        "branco": {valor: 9, mult: 1_000_000_000, tol: null},
-        "dourado": {valor: null, mult: 1, tol: "+- 5%"},
-        "prata": {valor: null, mult: 1, tol: "+- 10%"},
+        "cinza": {valor: 8, mult: 1, tol: null},
+        "branco": {valor: 9, mult: 1, tol: null},
+        "dourado": {valor: null, mult: 0.1, tol: "+- 5%"},
+        "prata": {valor: null, mult: 0.01, tol: "+- 10%"},
     };
 
     let cores = [];
-        for(let contadorCores = 0; contadorCores < 4; contadorCores++){
-            let corDigitada = prompt(`Digite a ${contadorCores + 1}ª cor: `).toLowerCase.trim();
+        for(let contadorCores = 0; contadorCores < 5; contadorCores++){
+            let corDigitada = prompt(`Digite a ${contadorCores + 1}ª cor: `).toLowerCase().trim();
             //.toLowerCase - coloca todo o texto em minúsculo
             //.trim() - tira espaçoes excessivos que atrapalhariam o input
 
@@ -43,7 +43,7 @@ function resistor5cores(){
             }
             cores.push(corDigitada);
             //.push - adicionou a cor digitada ao array "cores"
-
+        }
             document.getElementById('s5').style.display = "block";
             document.getElementById('s1').style.backgroundColor = tradutorCores[cores[0]];
             document.getElementById('s2').style.backgroundColor = tradutorCores[cores[1]];
@@ -54,8 +54,8 @@ function resistor5cores(){
             const d1 = tabelaDeValores[cores[0]].valor;
             const d2 = tabelaDeValores[cores[1]].valor;
             const d3 = tabelaDeValores[cores[2]].valor;
-            const multiplicador = tabelaDeValores[cores[2]].mult;
-            const tolerancia = tabelaDeValores[cores[3]]?.tol;
+            const multiplicador = tabelaDeValores[cores[3]].mult;
+            const tolerancia = tabelaDeValores[cores[4]]?.tol;
 
             /*
             Mapeamento do cálculo
@@ -77,6 +77,6 @@ function resistor5cores(){
 
             document.getElementById('valor-ohm').innerHTML = `${exibicao} Ω <small style="font-size: 0.8rem; color: #666;">(${tolerancia})</small>`;
         }
-    }
+    
 
 

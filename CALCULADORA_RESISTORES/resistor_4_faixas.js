@@ -24,15 +24,15 @@ function resistor4cores(){
         "verde": {valor: 5, mult: 100_000, tol: null},
         "azul": {valor: 6, mult: 1_000_000, tol: null},
         "roxo": {valor: 7, mult: 10_000_000, tol: null},
-        "cinza": {valor: 8, mult: 100_000_000, tol: null},
-        "branco": {valor: 9, mult: 1_000_000_000, tol: null},
-        "dourado": {valor: null, mult: 1, tol: "+- 5%"},
-        "prata": {valor: null, mult: 1, tol: "+- 10%"},
+        "cinza": {valor: 8, mult: 1, tol: null},
+        "branco": {valor: 9, mult: 1, tol: null},
+        "dourado": {valor: null, mult: 0.1, tol: "+- 5%"},
+        "prata": {valor: null, mult: 0.01, tol: "+- 10%"},
     };
 
     let cores = [];
         for(let contadorCores = 0; contadorCores < 4; contadorCores++){
-            let corDigitada = prompt(`Digite a ${contadorCores + 1}ª cor: `).toLowerCase.trim();
+            let corDigitada = prompt(`Digite a ${contadorCores + 1}ª cor: `).toLowerCase().trim();
             //.toLowerCase - coloca todo o texto em minúsculo
             //.trim() - tira espaçoes excessivos que atrapalhariam o input
 
@@ -43,7 +43,7 @@ function resistor4cores(){
             }
             cores.push(corDigitada);
             //.push - adicionou a cor digitada ao array "cores"
-
+        }
             document.getElementById('s1').style.backgroundColor = tradutorCores[cores[0]];
             document.getElementById('s2').style.backgroundColor = tradutorCores[cores[1]];
             document.getElementById('s3').style.backgroundColor = tradutorCores[cores[2]];
@@ -74,6 +74,6 @@ function resistor4cores(){
 
             document.getElementById('valor-ohm').innerHTML = `${exibicao} Ω <small style="font-size: 0.8rem; color: #666;">(${tolerancia})</small>`;
         }
-    }
+    
 
 
